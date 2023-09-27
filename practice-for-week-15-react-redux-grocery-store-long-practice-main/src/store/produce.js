@@ -19,7 +19,7 @@ const produceReducer = (state = {}, action) => {
 }
 
 
-const populateProduce = () => ({
+export const populateProduce = () => ({
     
     type: POPULATE,
     produce: produce
