@@ -3,9 +3,7 @@ const POPULATE = 'produce/POPULATE'
 
 const produceReducer = (state = {}, action) => {
     const nextState = Object.assign({}, Object.freeze(state))
-
-
-
+    
     switch (action.type) {
         case POPULATE:
             action.produce.forEach(element => {
@@ -20,7 +18,6 @@ const produceReducer = (state = {}, action) => {
 
 
 export const populateProduce = () => ({
-    
     type: POPULATE,
     produce: produce
 })
