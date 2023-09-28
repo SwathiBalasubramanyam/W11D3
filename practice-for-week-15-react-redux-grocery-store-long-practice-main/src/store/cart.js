@@ -1,6 +1,7 @@
 const POPULATE = 'cart/populate';
-const REMOVE = 'cart/remove'
-const DECREMENT = 'cart/decrement'
+const REMOVE = 'cart/remove';
+const DECREMENT = 'cart/decrement';
+const EMPTY = 'cart/empty';
 
 const cartReducer = (state = {}, action) => {
     const nextState = Object.assign({}, Object.freeze(state))
@@ -22,6 +23,8 @@ const cartReducer = (state = {}, action) => {
         case REMOVE:
             delete nextState[action.itemId]
             return nextState;
+        case EMPTY:
+            return {};
         default:
             return state;
     }
@@ -45,6 +48,12 @@ export const decrementCartItem = (itemId) => {
     return {
         type: DECREMENT,
         itemId: itemId
+    }
+}
+
+export const emptyCart = () => {
+    return {
+        type: EMPTY
     }
 }
 
