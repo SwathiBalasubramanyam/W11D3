@@ -17,10 +17,25 @@ function Cart() {
 
   const cartItems = [];
 
-  cart.forEach((k, v) => {
-      let newObj = {...v, ...produce[k]}
-      cartItems.push(newObj)
-  });
+  // cart.forEach((k, v) => {
+  //     let newObj = {...v, ...produce[k]}
+  //     cartItems.push(newObj)
+  // });
+
+  for(const key in cart){
+    let newObj = {...cart[key], ...produce[key]}
+    cartItems.push(newObj)
+  }
+
+  // const cartItems = Object.keys(cart).map(
+  //   key => {
+  //     return {
+  //       ...cart[key], ...produce[key]
+  //     }
+  //   }
+  // )
+
+
 
 
   // const cartItems = Object.values(cart)
