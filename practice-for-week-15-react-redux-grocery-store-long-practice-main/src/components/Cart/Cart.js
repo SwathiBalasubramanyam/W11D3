@@ -15,14 +15,21 @@ function Cart() {
 
   const dispatch = useDispatch();
 
+  const cartItems = [];
 
-  const cartItems = Object.values(cart)
-    .map(item => {
-      return {
-        ...item,
-        ...produce[item.id]
-      };
-    });
+  cart.forEach((k, v) => {
+      let newObj = {...v, ...produce[k]}
+      cartItems.push(newObj)
+  });
+
+
+  // const cartItems = Object.values(cart)
+  //   .map(item => {
+  //     return {
+  //       ...item,
+  //       ...produce[item.id]
+  //     };
+  //   });
 
   if (!cartItems || !cartItems.length) return (
     <div className="cart">
